@@ -1,0 +1,124 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds7eras1v2cpd"]
+
+[ext_resource type="Texture2D" uid="uid://dv3ihy8bvo5oy" path="res://Assets/inventory-background.png" id="1_605em"]
+[ext_resource type="Script" uid="uid://bqcinu5isseer" path="res://Inventory/InvScripts/inv_ui.gd" id="1_mnjyx"]
+[ext_resource type="PackedScene" uid="uid://bgjgfjeqafltb" path="res://Inventory/inv_ui_slot.tscn" id="2_ltxgc"]
+[ext_resource type="Texture2D" uid="uid://bw8hqxni0c2e4" path="res://Assets/smol carga.png" id="3_mnjyx"]
+[ext_resource type="PackedScene" uid="uid://dpqxu6w2mtikw" path="res://Inventory/settings_ui_slot.tscn" id="3_s8fnp"]
+
+[node name="inv_UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mnjyx")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 2.0
+offset_right = 66.0
+offset_bottom = 644.0
+texture = ExtResource("1_605em")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_top = 4.0
+offset_right = -11.0
+offset_bottom = 153.0
+grow_horizontal = 2
+scale = Vector2(3.86482, 4.07231)
+
+[node name="inv_UI_slot" parent="NinePatchRect/GridContainer" instance=ExtResource("2_ltxgc")]
+layout_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="NinePatchRect/GridContainer/inv_UI_slot"]
+visible = false
+position = Vector2(5.95111, 5.89346)
+scale = Vector2(0.776232, 0.777609)
+texture = ExtResource("3_mnjyx")
+
+[node name="inv_UI_slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("2_ltxgc")]
+layout_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="NinePatchRect/GridContainer/inv_UI_slot2"]
+visible = false
+position = Vector2(5.95111, 5.89346)
+scale = Vector2(0.776232, 0.777609)
+texture = ExtResource("3_mnjyx")
+
+[node name="inv_UI_slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("2_ltxgc")]
+layout_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="NinePatchRect/GridContainer/inv_UI_slot3"]
+visible = false
+position = Vector2(5.95111, 5.89346)
+scale = Vector2(0.776232, 0.777609)
+texture = ExtResource("3_mnjyx")
+
+[node name="inv_UI_slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("2_ltxgc")]
+layout_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="NinePatchRect/GridContainer/inv_UI_slot4"]
+visible = false
+position = Vector2(5.95111, 5.89346)
+scale = Vector2(0.776232, 0.777609)
+texture = ExtResource("3_mnjyx")
+
+[node name="inv_UI_slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("2_ltxgc")]
+layout_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="NinePatchRect/GridContainer/inv_UI_slot5"]
+visible = false
+position = Vector2(5.95111, 5.89346)
+scale = Vector2(0.776232, 0.777609)
+texture = ExtResource("3_mnjyx")
+
+[node name="inv_UI_slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("2_ltxgc")]
+layout_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="NinePatchRect/GridContainer/inv_UI_slot6"]
+visible = false
+position = Vector2(5.95111, 5.89346)
+scale = Vector2(0.776232, 0.777609)
+texture = ExtResource("3_mnjyx")
+
+[node name="inv_UI_slot7" parent="NinePatchRect/GridContainer" instance=ExtResource("2_ltxgc")]
+layout_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="NinePatchRect/GridContainer/inv_UI_slot7"]
+visible = false
+position = Vector2(5.95111, 5.89346)
+scale = Vector2(0.776232, 0.777609)
+texture = ExtResource("3_mnjyx")
+
+[node name="inv_UI_slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("2_ltxgc")]
+layout_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="NinePatchRect/GridContainer/inv_UI_slot8"]
+visible = false
+position = Vector2(5.95111, 5.89346)
+scale = Vector2(0.776232, 0.777609)
+texture = ExtResource("3_mnjyx")
+
+[node name="inv_UI_slot9" parent="NinePatchRect/GridContainer" instance=ExtResource("2_ltxgc")]
+layout_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="NinePatchRect/GridContainer/inv_UI_slot9"]
+visible = false
+position = Vector2(5.95111, 5.89346)
+scale = Vector2(0.776232, 0.777609)
+texture = ExtResource("3_mnjyx")
+
+[node name="settings_ui_slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_s8fnp")]
+layout_mode = 2

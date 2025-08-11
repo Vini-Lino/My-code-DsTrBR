@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpqxu6w2mtikw"]
+
+[ext_resource type="Texture2D" uid="uid://26u8fy5po5su" path="res://Assets/settings icon.png" id="1_f0cej"]
+
+[node name="settings_ui_slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(12, 12)
+offset_right = 12.0
+offset_bottom = 12.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, 6)
+scale = Vector2(0.0282353, 0.0282353)
+texture = ExtResource("1_f0cej")

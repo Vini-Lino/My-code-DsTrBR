@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf1t0r2hfplnw"]
+
+[ext_resource type="PackedScene" uid="uid://dtkekjckjod5q" path="res://Scenes/player.tscn" id="1_8werm"]
+[ext_resource type="Script" uid="uid://orsijhy0ko2m" path="res://Scripts/game_manager.gd" id="1_jan0m"]
+[ext_resource type="PackedScene" uid="uid://doifeatafi3hi" path="res://Scenes/carga.tscn" id="2_rvlkc"]
+[ext_resource type="PackedScene" uid="uid://ds7eras1v2cpd" path="res://Inventory/inv_ui.tscn" id="4_qmgor"]
+
+[node name="da Game" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_jan0m")
+
+[node name="Player" parent="." instance=ExtResource("1_8werm")]
+position = Vector2(1, -1)
+
+[node name="Carga" type="Node" parent="."]
+
+[node name="Carga" parent="Carga" instance=ExtResource("2_rvlkc")]
+position = Vector2(-593, -48)
+
+[node name="Carga2" parent="Carga" instance=ExtResource("2_rvlkc")]
+position = Vector2(-521, -445)
+
+[node name="Carga3" parent="Carga" instance=ExtResource("2_rvlkc")]
+position = Vector2(569, -372)
+
+[node name="Carga4" parent="Carga" instance=ExtResource("2_rvlkc")]
+position = Vector2(768, 40)
+
+[node name="Carga5" parent="Carga" instance=ExtResource("2_rvlkc")]
+position = Vector2(-427, 458)
+
+[node name="Carga6" parent="Carga" instance=ExtResource("2_rvlkc")]
+position = Vector2(364, 862)
+
+[node name="Carga7" parent="Carga" instance=ExtResource("2_rvlkc")]
+position = Vector2(-73, 778)
+
+[node name="Carga8" parent="Carga" instance=ExtResource("2_rvlkc")]
+position = Vector2(603, 577)
+
+[node name="Carga9" parent="Carga" instance=ExtResource("2_rvlkc")]
+position = Vector2(181, 490)
+
+[node name="Carga10" parent="Carga" instance=ExtResource("2_rvlkc")]
+position = Vector2(705, 316)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="inv_UI" parent="CanvasLayer" instance=ExtResource("4_qmgor")]
+offset_left = 1081.0
+offset_top = 1.0
+offset_right = 20.0
+offset_bottom = 1.0
