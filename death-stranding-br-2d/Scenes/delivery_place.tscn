@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://qqxv8i1blcpm"]
+
+[ext_resource type="Texture2D" uid="uid://bmu48hgh7o0gp" path="res://Assets/DeliveryPlace.png" id="1_880w1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxbj6"]
+atlas = ExtResource("1_880w1")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6a6p7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxbj6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjdck"]
+size = Vector2(34, 34)
+
+[node name="DeliveryPlace" type="Area2D"]
+scale = Vector2(10, 10)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -17)
+sprite_frames = SubResource("SpriteFrames_6a6p7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_xjdck")

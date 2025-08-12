@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf1t0r2hfplnw"]
+[gd_scene load_steps=7 format=3 uid="uid://bf1t0r2hfplnw"]
 
 [ext_resource type="PackedScene" uid="uid://dtkekjckjod5q" path="res://Scenes/player.tscn" id="1_8werm"]
 [ext_resource type="Script" uid="uid://orsijhy0ko2m" path="res://Scripts/game_manager.gd" id="1_jan0m"]
 [ext_resource type="PackedScene" uid="uid://doifeatafi3hi" path="res://Scenes/carga.tscn" id="2_rvlkc"]
 [ext_resource type="PackedScene" uid="uid://ds7eras1v2cpd" path="res://Inventory/inv_ui.tscn" id="4_qmgor"]
+[ext_resource type="PackedScene" uid="uid://bkqtffhwdr20c" path="res://Scenes/stamina_bar.tscn" id="5_r6pm8"]
+[ext_resource type="PackedScene" uid="uid://qqxv8i1blcpm" path="res://Scenes/delivery_place.tscn" id="6_r26vo"]
 
 [node name="da Game" type="Node2D"]
 
@@ -12,6 +14,7 @@ unique_name_in_owner = true
 script = ExtResource("1_jan0m")
 
 [node name="Player" parent="." instance=ExtResource("1_8werm")]
+z_index = 1
 position = Vector2(1, -1)
 
 [node name="Carga" type="Node" parent="."]
@@ -53,3 +56,12 @@ offset_left = 1081.0
 offset_top = 1.0
 offset_right = 20.0
 offset_bottom = 1.0
+
+[node name="stamina_bar" parent="CanvasLayer" instance=ExtResource("5_r6pm8")]
+offset_left = 718.0
+offset_top = 597.0
+offset_right = 1061.0
+offset_bottom = 631.0
+
+[node name="DeliveryPlace" parent="." instance=ExtResource("6_r26vo")]
+position = Vector2(910, -284)

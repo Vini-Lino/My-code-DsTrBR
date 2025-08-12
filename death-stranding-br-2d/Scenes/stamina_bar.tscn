@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkqtffhwdr20c"]
+
+[ext_resource type="Texture2D" uid="uid://bn3od2um5t04a" path="res://Assets/black_bar.png" id="1_dk0pf"]
+[ext_resource type="Texture2D" uid="uid://ckx78cqcbmjxc" path="res://Assets/stamina.png" id="2_qbfsp"]
+[ext_resource type="Script" uid="uid://curf4h6noe66r" path="res://Scripts/stamina_bar.gd" id="3_6dmtv"]
+
+[node name="stamina_bar" type="TextureProgressBar"]
+offset_right = 490.0
+offset_bottom = 65.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_dk0pf")
+texture_progress = ExtResource("2_qbfsp")
+script = ExtResource("3_6dmtv")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -25.5
+offset_right = 72.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/bold_italics_font_size = 45
+theme_override_font_sizes/italics_font_size = 45
+theme_override_font_sizes/mono_font_size = 45
+theme_override_font_sizes/normal_font_size = 35
+theme_override_font_sizes/bold_font_size = 45
+text = "Stamina"

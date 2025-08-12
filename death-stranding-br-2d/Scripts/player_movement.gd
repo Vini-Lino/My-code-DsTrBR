@@ -14,6 +14,20 @@ func _physics_process(_delta):
 		
 	if character_direction and GameManager.cargo >= 2:
 		velocity = character_direction * movement_speed / GameManager.cargo * 1.5
+		
+	if Input.is_action_pressed("Shift") and StaminaSc.staminaDown == false: #and StaminaSc.stamina.value != 0:
+#		StaminaSc.stamina.value -= 10
+#		StaminaSc.can_regen = false
+#		StaminaSc.s_timer = 0
+		velocity = velocity * 2
+	else:
+		if character_direction and GameManager.cargo == 0 or 1:
+			velocity = character_direction * movement_speed
+		else:
+			velocity = velocity.move_toward(Vector2.ZERO, movement_speed)
+		
+		if character_direction and GameManager.cargo >= 2:
+			velocity = character_direction * movement_speed / GameManager.cargo * 1.5
 	
 	move_and_slide()
 

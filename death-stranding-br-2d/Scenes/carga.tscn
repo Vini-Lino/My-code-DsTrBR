@@ -1,7 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://doifeatafi3hi"]
+[gd_scene load_steps=8 format=3 uid="uid://doifeatafi3hi"]
 
 [ext_resource type="Texture2D" uid="uid://biwqulkdu1lb7" path="res://Assets/carga.png" id="1_rb52j"]
 [ext_resource type="Script" uid="uid://ctswyh7jg64y5" path="res://Scripts/carga.gd" id="1_w1rcv"]
+[ext_resource type="Texture2D" uid="uid://cypho2tqg6c48" path="res://Assets/carga_a.png" id="2_cmjkf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j87pv"]
+atlas = ExtResource("2_cmjkf")
+region = Rect2(0, 0, 47, 41)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w1rcv"]
 atlas = ExtResource("1_rb52j")
@@ -10,6 +15,9 @@ region = Rect2(0, 0, 400, 300)
 [sub_resource type="SpriteFrames" id="SpriteFrames_cmjkf"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j87pv")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w1rcv")
 }],
@@ -27,7 +35,7 @@ script = ExtResource("1_w1rcv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -47)
-scale = Vector2(0.32, 0.313333)
+scale = Vector2(2.7234, 2.29268)
 sprite_frames = SubResource("SpriteFrames_cmjkf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
