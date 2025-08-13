@@ -2,7 +2,7 @@ extends TextureProgressBar
 
 @onready var stamina = $"."
 var can_regen = false
-var time_to_wait = 1.5
+var time_to_wait = 1
 var s_timer = 0
 var can_start_stimer = true
 var staminaDown = false
@@ -31,7 +31,7 @@ func _process(delta):
 		s_timer = 0
 
 	if Input.is_action_pressed("Shift") and stamina.value != 0:
-		stamina.value -= 1
+		stamina.value -= 0.6
 		can_regen = false
 		s_timer = 0
 		staminaDown = false

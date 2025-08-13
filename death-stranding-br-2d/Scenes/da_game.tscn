@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bf1t0r2hfplnw"]
+[gd_scene load_steps=9 format=3 uid="uid://bf1t0r2hfplnw"]
 
 [ext_resource type="PackedScene" uid="uid://dtkekjckjod5q" path="res://Scenes/player.tscn" id="1_8werm"]
 [ext_resource type="Script" uid="uid://orsijhy0ko2m" path="res://Scripts/game_manager.gd" id="1_jan0m"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ds7eras1v2cpd" path="res://Inventory/inv_ui.tscn" id="4_qmgor"]
 [ext_resource type="PackedScene" uid="uid://bkqtffhwdr20c" path="res://Scenes/stamina_bar.tscn" id="5_r6pm8"]
 [ext_resource type="PackedScene" uid="uid://qqxv8i1blcpm" path="res://Scenes/delivery_place.tscn" id="6_r26vo"]
+[ext_resource type="PackedScene" uid="uid://bmbhfdhi274y6" path="res://Scenes/pontuation.tscn" id="7_64afs"]
+[ext_resource type="Script" uid="uid://bjo88s5svv65b" path="res://Scripts/coordinates.gd" id="7_dupxo"]
 
 [node name="da Game" type="Node2D"]
 
@@ -20,34 +22,34 @@ position = Vector2(1, -1)
 [node name="Carga" type="Node" parent="."]
 
 [node name="Carga" parent="Carga" instance=ExtResource("2_rvlkc")]
-position = Vector2(-593, -48)
+position = Vector2(751, -952)
 
 [node name="Carga2" parent="Carga" instance=ExtResource("2_rvlkc")]
-position = Vector2(-521, -445)
+position = Vector2(-846, -340)
 
 [node name="Carga3" parent="Carga" instance=ExtResource("2_rvlkc")]
-position = Vector2(569, -372)
+position = Vector2(286, 3130)
 
 [node name="Carga4" parent="Carga" instance=ExtResource("2_rvlkc")]
-position = Vector2(768, 40)
+position = Vector2(2475, 1294)
 
 [node name="Carga5" parent="Carga" instance=ExtResource("2_rvlkc")]
-position = Vector2(-427, 458)
+position = Vector2(-2277, 3006)
 
 [node name="Carga6" parent="Carga" instance=ExtResource("2_rvlkc")]
-position = Vector2(364, 862)
+position = Vector2(-933, 3111)
 
 [node name="Carga7" parent="Carga" instance=ExtResource("2_rvlkc")]
-position = Vector2(-73, 778)
+position = Vector2(-3713, 2827)
 
 [node name="Carga8" parent="Carga" instance=ExtResource("2_rvlkc")]
-position = Vector2(603, 577)
+position = Vector2(2715, 155)
 
 [node name="Carga9" parent="Carga" instance=ExtResource("2_rvlkc")]
-position = Vector2(181, 490)
+position = Vector2(1276, 2644)
 
 [node name="Carga10" parent="Carga" instance=ExtResource("2_rvlkc")]
-position = Vector2(705, 316)
+position = Vector2(1866, 2169)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -63,5 +65,49 @@ offset_top = 597.0
 offset_right = 1061.0
 offset_bottom = 631.0
 
-[node name="DeliveryPlace" parent="." instance=ExtResource("6_r26vo")]
-position = Vector2(910, -284)
+[node name="Pontuation" parent="CanvasLayer" instance=ExtResource("7_64afs")]
+offset_left = 846.0
+offset_top = 18.0
+offset_right = 1074.0
+offset_bottom = 79.0
+
+[node name="Coordinates" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 608.0
+offset_right = 592.0
+offset_bottom = 648.0
+theme_override_font_sizes/normal_font_size = 28
+text = "x: 0 y: 0"
+script = ExtResource("7_dupxo")
+
+[node name="Deliveries" type="Node" parent="."]
+
+[node name="DeliveryPlace" parent="Deliveries" instance=ExtResource("6_r26vo")]
+position = Vector2(-1669, -2777)
+
+[node name="DeliveryPlace2" parent="Deliveries" instance=ExtResource("6_r26vo")]
+position = Vector2(1757, -2016)
+
+[node name="DeliveryPlace3" parent="Deliveries" instance=ExtResource("6_r26vo")]
+position = Vector2(2185, -1225)
+
+[node name="DeliveryPlace4" parent="Deliveries" instance=ExtResource("6_r26vo")]
+position = Vector2(-4156, 2379)
+
+[node name="DeliveryPlace5" parent="Deliveries" instance=ExtResource("6_r26vo")]
+position = Vector2(-2663, -2048)
+
+[node name="DeliveryPlace6" parent="Deliveries" instance=ExtResource("6_r26vo")]
+position = Vector2(-4088, 714)
+
+[node name="DeliveryPlace7" parent="Deliveries" instance=ExtResource("6_r26vo")]
+position = Vector2(598, -2813)
+
+[node name="DeliveryPlace8" parent="Deliveries" instance=ExtResource("6_r26vo")]
+position = Vector2(-3645, -481)
+
+[node name="DeliveryPlace9" parent="Deliveries" instance=ExtResource("6_r26vo")]
+position = Vector2(-508, -2895)
+
+[node name="DeliveryPlace10" parent="Deliveries" instance=ExtResource("6_r26vo")]
+position = Vector2(2529, -235)
