@@ -20,7 +20,7 @@ func _physics_process(_delta):
 #		StaminaSc.stamina.value -= 10
 #		StaminaSc.can_regen = false
 #		StaminaSc.s_timer = 0
-		velocity = velocity * 2
+		velocity = velocity * 3
 		print(velocity)
 		
 	#else:
@@ -63,21 +63,25 @@ func _process(_delta: float) -> void:
 		GameManager.remove_cargo()
 		drop_item()
 	look_at(get_global_mouse_position())
-	var joystick_x = Input.get_joy_axis(0, JOY_AXIS_RIGHT_X)  # Right thumbstick horizontal
-	var joystick_y = Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)  # Right thumbstick vertical
+	var joystick_x = Input.get_joy_axis(0, JOY_AXIS_RIGHT_X)
+	var joystick_y = Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
 
-	# Create a direction vector from the joystick input
 	var direction = Vector2(joystick_x, joystick_y)
 
-	# Check if the direction vector has a significant length
 	if direction.length() > 0:
-		# Calculate the angle in radians
 		var angle = direction.angle()
 
-		# Rotate the player to face the direction of the thumbstick
 		rotation = angle
 	
 func drop_item() -> void:
 	var dropped_item = cargo_scene.instantiate()
 	dropped_item.global_position = global_position
 	get_tree().current_scene.add_child(dropped_item)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_released("shoot"):
+		shoot()
+
+func shoot():
+	animated_sprite.play("shoot")
+	print("bang") #a useful tutorial that i am going to follow later https://www.youtube.com/watch?v=ggt05fCiH7M&list=PLpwc3ughKbZexDyPexHN2MXLliKAovkpl&index=3

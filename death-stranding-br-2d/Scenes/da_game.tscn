@@ -66,7 +66,7 @@ offset_right = 1061.0
 offset_bottom = 631.0
 
 [node name="Pontuation" parent="CanvasLayer" instance=ExtResource("7_64afs")]
-offset_left = 846.0
+offset_left = 717.0
 offset_top = 18.0
 offset_right = 1074.0
 offset_bottom = 79.0
