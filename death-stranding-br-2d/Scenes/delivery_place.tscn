@@ -31,7 +31,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjdck"]
-size = Vector2(34, 34)
+size = Vector2(10.2, 10.2)
 
 [node name="DeliveryPlace" type="Area2D"]
 scale = Vector2(10, 10)
@@ -39,11 +39,13 @@ collision_mask = 2
 script = ExtResource("1_uxbj6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -17)
+position = Vector2(-3.7998e-07, 1.13994e-06)
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_6a6p7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -17)
+position = Vector2(-3.7998e-07, 1.14739e-06)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xjdck")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

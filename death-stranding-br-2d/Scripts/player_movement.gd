@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-@export var movement_speed : float = 1000
+@export var movement_speed : float = 400
 var character_direction : Vector2
 @onready var animated_sprite = $AnimatedSprite2D
+var is_shoot = false
 
 func _physics_process(_delta):
 	character_direction.x = Input.get_axis("move_left", "move_right")
@@ -35,10 +36,10 @@ func _physics_process(_delta):
 	move_and_slide()
 	
 	if Input.is_action_pressed("move_up") or Input.is_action_pressed("move_down") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
-		if GameManager.cargo == 0:
+		if GameManager.cargo == 0 and is_shoot == false:
 			if not Input.is_action_pressed("Shift"):
 				animated_sprite.play("walking")
-		if GameManager.cargo >= 1:
+		if GameManager.cargo >= 1 and is_shoot == false:
 			if not Input.is_action_pressed("Shift"):
 				animated_sprite.play("walking_cargo")
 	if not Input.is_action_pressed("move_up"):
@@ -46,11 +47,11 @@ func _physics_process(_delta):
 			if not Input.is_action_pressed("move_left"):
 				if not Input.is_action_pressed("move_right"):
 					if not Input.is_action_pressed("Shift"):
-						if GameManager.cargo == 0:
+						if GameManager.cargo == 0 and is_shoot == false:
 							animated_sprite.play("idle")
-						if GameManager.cargo >= 1:
+						if GameManager.cargo >= 1 and is_shoot == false:
 							animated_sprite.play("idle_cargo")
-	if Input.is_action_pressed("Shift"):
+	if Input.is_action_pressed("Shift") and is_shoot == false:
 		if GameManager.cargo == 0:
 			animated_sprite.play("motorcycle")
 		if GameManager.cargo >= 1:
@@ -81,7 +82,15 @@ func drop_item() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("shoot"):
 		shoot()
+		if is_shoot == false:
+			is_shoot = true
+		else:
+			is_shoot = false
 
 func shoot():
-	animated_sprite.play("shoot")
-	print("bang") #a useful tutorial that i am going to follow later https://www.youtube.com/watch?v=ggt05fCiH7M&list=PLpwc3ughKbZexDyPexHN2MXLliKAovkpl&index=3
+	if is_shoot == false:
+		animated_sprite.play("shoot")
+		print("bang")
+	if is_shoot == true:
+		print("not bang")
+	#a useful tutorial that i am going to follow later https://www.youtube.com/watch?v=ggt05fCiH7M&list=PLpwc3ughKbZexDyPexHN2MXLliKAovkpl&index=3

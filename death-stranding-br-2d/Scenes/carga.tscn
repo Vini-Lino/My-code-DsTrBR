@@ -27,19 +27,21 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j87pv"]
-size = Vector2(128, 94)
+size = Vector2(24, 22)
 
 [node name="Carga" type="Area2D" groups=["NodesGroup"]]
+z_index = 1
 collision_mask = 2
 script = ExtResource("1_w1rcv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -47)
-scale = Vector2(2.7234, 2.29268)
+z_index = 1
+position = Vector2(0, -3.8147e-06)
+scale = Vector2(0.510638, 0.536585)
 sprite_frames = SubResource("SpriteFrames_cmjkf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -47)
+z_index = 1
 shape = SubResource("RectangleShape2D_j87pv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
