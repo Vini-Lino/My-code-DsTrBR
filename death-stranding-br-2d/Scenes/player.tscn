@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://dtkekjckjod5q"]
+[gd_scene load_steps=34 format=3 uid="uid://dtkekjckjod5q"]
 
 [ext_resource type="Script" uid="uid://c0o80igc42mdf" path="res://Scripts/player_movement.gd" id="1_cvnsp"]
+[ext_resource type="PackedScene" uid="uid://bj3x51y3tst6t" path="res://Scenes/bullet.tscn" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://bgtxo4evwmgtr" path="res://Assets/prota_a.png" id="2_cvnsp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
@@ -195,6 +196,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_0gysh")
+}],
+"loop": true,
+"name": &"shoot_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_6t5aa")
 }, {
 "duration": 1.0,
@@ -266,14 +275,14 @@ z_index = 2
 position = Vector2(40, -128)
 collision_layer = 2
 script = ExtResource("1_cvnsp")
+Bullet = ExtResource("2_6t5aa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2
 position = Vector2(4, 1.75)
 scale = Vector2(0.517241, 0.526786)
 sprite_frames = SubResource("SpriteFrames_6t5aa")
-animation = &"idle"
-frame_progress = 0.673101
+animation = &"shoot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 2
@@ -283,3 +292,6 @@ shape = SubResource("RectangleShape2D_vgqql")
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 2
 zoom = Vector2(1.5, 1.5)
+
+[node name="EndOfGun" type="Marker2D" parent="."]
+position = Vector2(25, 4)

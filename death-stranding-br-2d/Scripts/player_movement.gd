@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
+signal player_fired_bullet(bullet)
+@export var Bullet :PackedScene
 @export var movement_speed : float = 400
 var character_direction : Vector2
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var end_of_gun = $EndOfGun
 var is_shoot = false
 
 func _physics_process(_delta):
@@ -86,10 +89,19 @@ func _unhandled_input(event: InputEvent) -> void:
 			is_shoot = true
 		else:
 			is_shoot = false
+	if event.is_action_pressed("MouseLeft") and is_shoot == true:
+		animated_sprite.play("shoot")
+		#var bullet_instance = Bullet.instantiate()
+		#add_child(bullet_instance)
+		#bullet_instance.global_position = end_of_gun.global_position
+		#var target = get_global_mouse_position()
+		#var direction_to_mouse = bullet_instance.global_position.direction_to(target).normalized()
+		#bullet_instance.set_direction(direction_to_mouse)
+		#emit_signal("player_fired_bullet", bullet_instance)
 
 func shoot():
 	if is_shoot == false:
-		animated_sprite.play("shoot")
+		animated_sprite.play("shoot_idle")
 		print("bang")
 	if is_shoot == true:
 		print("not bang")
