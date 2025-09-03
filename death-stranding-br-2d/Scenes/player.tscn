@@ -1,8 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://dtkekjckjod5q"]
+[gd_scene load_steps=36 format=3 uid="uid://dtkekjckjod5q"]
 
 [ext_resource type="Script" uid="uid://c0o80igc42mdf" path="res://Scripts/player_movement.gd" id="1_cvnsp"]
 [ext_resource type="PackedScene" uid="uid://bj3x51y3tst6t" path="res://Scenes/bullet.tscn" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://bgtxo4evwmgtr" path="res://Assets/prota_a.png" id="2_cvnsp"]
+[ext_resource type="PackedScene" uid="uid://b2ksvi4oxn7w2" path="res://Scenes/health.tscn" id="4_vgqql"]
+[ext_resource type="Script" uid="uid://cw60kny4x6bh" path="res://Scripts/weapon.gd" id="5_fkybt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
 atlas = ExtResource("2_cvnsp")
@@ -20,37 +22,37 @@ region = Rect2(0, 183, 85, 61)
 atlas = ExtResource("2_cvnsp")
 region = Rect2(344, 180, 86, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wpjfl"]
-atlas = ExtResource("2_cvnsp")
-region = Rect2(432, 180, 99, 60)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_bi64h"]
 atlas = ExtResource("2_cvnsp")
 region = Rect2(531, 180, 99, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ijsl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpjfl"]
 atlas = ExtResource("2_cvnsp")
-region = Rect2(87, 183, 99, 61)
+region = Rect2(432, 180, 99, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1odr"]
 atlas = ExtResource("2_cvnsp")
 region = Rect2(186, 183, 99, 61)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0gysh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ijsl"]
 atlas = ExtResource("2_cvnsp")
-region = Rect2(0, 240, 86, 48)
+region = Rect2(87, 183, 99, 61)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vfarp"]
 atlas = ExtResource("2_cvnsp")
 region = Rect2(86, 240, 86, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y6uwr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gysh"]
 atlas = ExtResource("2_cvnsp")
-region = Rect2(344, 240, 86, 48)
+region = Rect2(0, 240, 86, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83xs0"]
 atlas = ExtResource("2_cvnsp")
 region = Rect2(430, 240, 86, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6uwr"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(344, 240, 86, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
 atlas = ExtResource("2_cvnsp")
@@ -152,10 +154,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wpjfl")
+"texture": SubResource("AtlasTexture_bi64h")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bi64h")
+"texture": SubResource("AtlasTexture_wpjfl")
 }],
 "loop": true,
 "name": &"motorcycle_cargo_shoot",
@@ -163,10 +165,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2ijsl")
+"texture": SubResource("AtlasTexture_p1odr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p1odr")
+"texture": SubResource("AtlasTexture_2ijsl")
 }],
 "loop": true,
 "name": &"motorcycle_shoot",
@@ -174,23 +176,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0gysh")
+"texture": SubResource("AtlasTexture_vfarp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vfarp")
+"texture": SubResource("AtlasTexture_0gysh")
 }],
-"loop": true,
+"loop": false,
 "name": &"shoot",
 "speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y6uwr")
+"texture": SubResource("AtlasTexture_83xs0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_83xs0")
+"texture": SubResource("AtlasTexture_y6uwr")
 }],
-"loop": true,
+"loop": false,
 "name": &"shoot_cargo",
 "speed": 3.0
 }, {
@@ -282,7 +284,7 @@ z_index = 2
 position = Vector2(4, 1.75)
 scale = Vector2(0.517241, 0.526786)
 sprite_frames = SubResource("SpriteFrames_6t5aa")
-animation = &"shoot"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 2
@@ -295,3 +297,15 @@ zoom = Vector2(1.5, 1.5)
 
 [node name="EndOfGun" type="Marker2D" parent="."]
 position = Vector2(25, 4)
+
+[node name="GunDirection" type="Marker2D" parent="."]
+position = Vector2(28, 4)
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[node name="Health" parent="." instance=ExtResource("4_vgqql")]
+
+[node name="Weapon" type="Node2D" parent="."]
+script = ExtResource("5_fkybt")

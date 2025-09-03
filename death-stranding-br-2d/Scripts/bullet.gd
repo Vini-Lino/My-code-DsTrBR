@@ -1,14 +1,31 @@
 extends Area2D
+class_name Bullet
 
-#@export var speed = 10
+@export var speed = 30
 
-#var direction := Vector2.ZERO
+@onready var kill_timer = $KillTimer
 
-#func _physics_process(delta: float) -> void:
-#	if direction != Vector2.ZERO:
-#		var velocity = direction * speed
+var direction := Vector2.ZERO
+
+func _ready() -> void:
+	kill_timer.start()
+
+func _physics_process(delta: float) -> void:
+	if direction != Vector2.ZERO:
+		var velocity = direction * speed
 		
-#		global_position += velocity
+		global_position += velocity
 
-#func set_direction(direction: Vector2):
-#	self.direction = direction
+func set_direction(direction: Vector2):
+	self.direction = direction
+	rotation += direction.angle()
+
+
+func _on_kill_timer_timeout() -> void:
+	queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.has_method("handle_hit"):
+		body.handle_hit()
+		queue_free()
