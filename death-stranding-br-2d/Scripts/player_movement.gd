@@ -49,6 +49,12 @@ func _physics_process(_delta):
 		if GameManager.cargo >= 1 and is_shoot == false:
 			if not Input.is_action_pressed("Shift"):
 				animated_sprite.play("walking_cargo")
+		if GameManager.cargo == 0 and is_shoot == true and attack_cooldown.is_stopped():
+			if not Input.is_action_pressed("Shift"):
+				animated_sprite.play("shoot_idle")
+		if GameManager.cargo >= 1 and is_shoot == true and attack_cooldown.is_stopped():
+			if not Input.is_action_pressed("Shift"):
+				animated_sprite.play("shoot_cargo_idle")
 	if not Input.is_action_pressed("move_up"):
 		if not Input.is_action_pressed("move_down"):
 			if not Input.is_action_pressed("move_left"):
@@ -58,11 +64,26 @@ func _physics_process(_delta):
 							animated_sprite.play("idle")
 						if GameManager.cargo >= 1 and is_shoot == false:
 							animated_sprite.play("idle_cargo")
+						if GameManager.cargo >= 1 and is_shoot == true and attack_cooldown.is_stopped():
+							animated_sprite.play("shoot_cargo_idle")
 	if Input.is_action_pressed("Shift") and is_shoot == false:
 		if GameManager.cargo == 0:
 			animated_sprite.play("motorcycle")
+			if Input.is_action_just_released("Shift"):
+				animated_sprite.play("idle")
 		if GameManager.cargo >= 1:
 			animated_sprite.play("motorcycle_cargo")
+			if Input.is_action_just_released("Shift"):
+				animated_sprite.play("idle_cargo")
+	if Input.is_action_pressed("Shift") and is_shoot == true:
+		if GameManager.cargo == 0:
+			animated_sprite.play("motorcycle_shoot_idle")
+			if Input.is_action_just_released("Shift"):
+				animated_sprite.play("shoot_idle")
+		if GameManager.cargo >= 1:
+			animated_sprite.play("motorcycle_cargo_shoot_idle")
+			if Input.is_action_just_released("Shift"):
+				animated_sprite.play("shoot_cargo_idle")
 
 var cargo_scene := preload("res://Scenes/carga.tscn")
 
@@ -94,11 +115,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			is_shoot = false
 	if event.is_action_pressed("MouseLeft") and is_shoot == true and attack_cooldown.is_stopped():
-		animated_sprite.play("shoot")
-		var bullet_instance = Bullet.instantiate()
-		var direction = (gun_direction.global_position - end_of_gun.global_position).normalized()
-		emit_signal("player_fired_bullet", bullet_instance, end_of_gun.global_position, direction)
-		attack_cooldown.start()
+		if GameManager.cargo == 0:
+			animated_sprite.play("shoot")
+			var bullet_instance = Bullet.instantiate()
+			var direction = (gun_direction.global_position - end_of_gun.global_position).normalized()
+			emit_signal("player_fired_bullet", bullet_instance, end_of_gun.global_position, direction)
+			attack_cooldown.start()
+		elif GameManager.cargo >= 1:
+			animated_sprite.play("shoot_cargo")
+			var bullet_instance = Bullet.instantiate()
+			var direction = (gun_direction.global_position - end_of_gun.global_position).normalized()
+			emit_signal("player_fired_bullet", bullet_instance, end_of_gun.global_position, direction)
+			attack_cooldown.start()
 
 func shoot():
 	if is_shoot == false:

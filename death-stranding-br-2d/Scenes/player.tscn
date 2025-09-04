@@ -165,6 +165,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_wpjfl")
+}],
+"loop": true,
+"name": &"motorcycle_cargo_shoot_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_p1odr")
 }, {
 "duration": 1.0,
@@ -173,6 +181,14 @@ animations = [{
 "loop": true,
 "name": &"motorcycle_shoot",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ijsl")
+}],
+"loop": true,
+"name": &"motorcycle_shoot_idle",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -195,6 +211,14 @@ animations = [{
 "loop": false,
 "name": &"shoot_cargo",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6uwr")
+}],
+"loop": true,
+"name": &"shoot_cargo_idle",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -284,7 +308,7 @@ z_index = 2
 position = Vector2(4, 1.75)
 scale = Vector2(0.517241, 0.526786)
 sprite_frames = SubResource("SpriteFrames_6t5aa")
-animation = &"idle"
+animation = &"motorcycle_shoot_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 2
