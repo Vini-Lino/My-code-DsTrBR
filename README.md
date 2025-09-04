@@ -5,9 +5,9 @@ Welcome to the Death Stranding BR 2D project!
 
 Downloads:
 
-Download for Linux: https://drive.google.com/uc?export=download&id=1QTxm7d4jXU63KGd98UNKvBs6ewFZG-12
+Download for Linux: [Click here to download](https://drive.google.com/file/d/1wxbnpRMrWUKM0mPEfqCll1qn7TQXRNzh/view?usp=sharing)
 
-Download for Windows: https://drive.google.com/uc?export=download&id=1QHeeqRDy-s0X0ek5p78i6WfJenLcoQsy
+Download for Windows: [Click here to download](https://drive.google.com/file/d/1dd8iEi_NgpD7LLNKQpnJhBf9rpre1sWW/view?usp=sharing)
 
 PT.
 
@@ -16,6 +16,6 @@ Bem vindo ao projeto Death Stranding BR 2D!
 
 Downloads:
 
-Baixar para Linux: https://drive.google.com/uc?export=download&id=1QTxm7d4jXU63KGd98UNKvBs6ewFZG-12
+Baixar para Linux: [Clique aqui para baixar](https://drive.google.com/file/d/1wxbnpRMrWUKM0mPEfqCll1qn7TQXRNzh/view?usp=sharing)
 
-Baixar para Windows: https://drive.google.com/uc?export=download&id=1QHeeqRDy-s0X0ek5p78i6WfJenLcoQsy
+Baixar para Windows: [Clique aqui para baixar](https://drive.google.com/file/d/1dd8iEi_NgpD7LLNKQpnJhBf9rpre1sWW/view?usp=sharing)
